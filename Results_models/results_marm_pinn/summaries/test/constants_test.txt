@@ -1,0 +1,25 @@
+run: test
+domain: <class 'fbpinns.domains.RectangularDomainND'>
+domain_init_kwargs: {'xmin': array([-1, -1,  0]), 'xmax': array([1, 1, 1])}
+problem: <class '__main__.WaveEquation3D'>
+problem_init_kwargs: {'c0': 1, 'c1': 3, 'sd': 0.02}
+decomposition: <class 'fbpinns.decompositions.RectangularDecompositionND'>
+decomposition_init_kwargs: {'subdomain_xs': [array([-1.        , -0.33333333,  0.33333333,  1.        ]), array([-1.        , -0.33333333,  0.33333333,  1.        ]), array([0.        , 0.33333333, 0.66666667, 1.        ])], 'subdomain_ws': [array([1.26666667, 1.26666667, 1.26666667, 1.26666667]), array([1.26666667, 1.26666667, 1.26666667, 1.26666667]), array([0.63333333, 0.63333333, 0.63333333, 0.63333333])], 'unnorm': (0.0, 1.0)}
+network: <class 'fbpinns.networks.FCN'>
+network_init_kwargs: {'layer_sizes': [3, 64, 64, 64, 1]}
+n_steps: 120000
+scheduler: <class 'fbpinns.schedulers.AllActiveSchedulerND'>
+scheduler_kwargs: {}
+ns: ((80, 80, 80),)
+n_test: (60, 60, 10)
+sampler: grid
+optimiser: <function adam at 0x76b4935be660>
+optimiser_kwargs: {'learning_rate': 0.001}
+seed: 0
+summary_freq: 1000
+test_freq: 200
+model_save_freq: 10000
+show_figures: True
+save_figures: False
+clear_output: True
+hostname: seismic1
