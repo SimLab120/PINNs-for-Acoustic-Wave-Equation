@@ -11,33 +11,44 @@ This repository contains code for solving 2D wave equations using Physics-Inform
   - [Training PINNs](#training-pinns)
   - [Training FBPINNs](#training-fbpinns)
 - [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
+  
 
 ## Overview
 
-The project aims to solve the time-dependent 2D wave equation with constant variable using PINNs and FBPINNs. The wave equation is given by:
+The project aims to solve the time-dependent 2D wave equation with heterogeneous velocity model using PINNs and FBPINNs. The wave equation is given by:
 
-\[ \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} - \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2} = s(x, y, t) \]
+The wave equation with a source term is given by:
 
-where \( u \) is the wave field, \( c \) is the velocity, and \( s(x, y, t) \) is the source term.
+ 
+$$
+\frac{\partial^2 u}{\partial t^2} - c^2 \nabla^2 u = f(x, t)
+$$
+
+Where:
+- \( u(x, t) \) is the wave field as a function of space \( x \) and time \( t \),
+- \( c \) is the wave propagation speed,
+- \( \nabla^2 \) is the Laplacian operator (spatial second derivative),
+- \( f(x, t) \) is the source term, representing external forces or inputs.
+
 
 ## Installation
 
 To install the required dependencies, run:
 
-```bash
+ bash
 pip install -r requirements.txt
 
-#usage
+Usage
 Wave Equation Problem
 The wave equation problem is defined in the WaveEquation3D class. It includes methods for initializing parameters, computing the velocity model (c_fn), sampling constraints, and defining the loss function.
 
 Training PINNs
 To train a PINN model, use the following code:
 
-<code>from fbpinns.trainers import PINNTrainer
 
+from fbpinns.trainers import PINNTrainer
+
+<code>
 # Initialize constants and problem
 c = Constants(
     run="test",
